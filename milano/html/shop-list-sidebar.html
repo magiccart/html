@@ -1,0 +1,1429 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shop List Sidebar</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+
+    <!-- CSS Global -->
+    <link href="js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+	<link href="fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+    <link href="js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+    <link href="js/plugins/accordion/css/magicaccordion.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/plugins/iesupport/html5shiv.js"></script>
+    <script src="js/plugins/iesupport/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="home" class="wide">
+
+
+<!-- Wrap all content -->
+<div class="wrapper">
+
+     <!-- Login popup -->
+    <div class="modal fade popup-login" id="popup-login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                        <form action="#" method="post" >
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="popup-login-email">Email</label>
+										<input id="popup-login-email" type="text" class="form-control"/>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="popup-login-password">Password</label>
+										<input id="popup-login-password" type="password" class="form-control"/>
+									</div>
+								</div>
+                            </div>
+							<div class="row">
+								<div class="col-sm-12">
+									<label><input type="checkbox"> Remember me</label> <br class="clear"/>
+									<a class="link" href="#">Forgot password?</a>
+								</div>
+                            </div>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button" data-dismiss="modal"><span>login</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Login popup -->
+
+    <!-- TOP LINE -->
+    <div class="top-line">
+        <div class="container">
+			<div class="row">
+				<div class="top-left col-md-5 col-sm-5 col-xs-5">
+					<p class="welcome-msg">Milano welcome msg! </p>
+				</div>
+				<div class="top-right col-md-7 col-sm-7 col-xs-7">
+					<div class="header-setting">
+						<div class="settting-switcher">
+							<div class="dropdown-toggle">
+								<div class="text-setting">Links</div>
+							</div>
+							<div class="dropdown-switcher">
+								<div class="top-links-alo">
+									<div class="header-top-link">
+										<ul class="links">
+											<li class="first"><a title="My Account" href="login.html">My Account</a></li>
+											<li><a title="My Wishlist" href="wishlist.html">My Wishlist</a></li>
+											<li><a class="top-link-checkout" title="Checkout" href="checkout.html">Checkout</a></li>
+											<li><a title="Testimonial" href="#">Testimonial</a></li>
+											<li class=" last"><a title="Log In" href="login.html">Log In</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<ul class="top-links">
+							<li class="login">
+								<a href="#" data-toggle="modal" data-target="#popup-login">Sign In</a>
+							</li>
+							<li>
+								<span class="or">Or</span>
+							</li>
+							<li class="first">
+								<a title="Register" href="login.html" style="positon:relative;" id="quick_sigup_link">Register	</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- /TOP LINE -->
+	
+    <!-- HEADER -->
+	
+    <header class="header">
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="content-seach col-md-4 col-sm-4 col-xs-12">
+						<div class="header-search">
+							<form method="get" id="search_mini_form">
+								<div class="form-search clearfix">
+									<label for="search">Search</label>
+									<button class="button" title="Search" type="submit"><span><span><i aria-hidden="true" data-icon="U" class="fs1"></i></span></span></button>
+									<input type="search" placeholder="Search here..." maxlength="128" class="input-text required-entry" value="" name="q" id="search" autocomplete="off">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="content-logo col-md-4 col-sm-4 col-xs-12">
+						<div class="header-logo">
+							<h1 class="logo">
+								<a href="index.html" class="scroll-to"><img alt="ALO Themes" src="images/logo/logo.png" class="img-responsive"></a>
+							</h1>
+						</div>
+					</div>
+					<div class="content-cart menu-mobile col-md-4 col-sm-4 col-xs-12">
+						<!-- Mobile menu toggle button-->
+						<a href="#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
+						<!-- /Mobile menu toggle button-->
+						<div class="miniCartWrap pull-right">
+							<div class="mini-maincart">
+								<div class="cartSummary">
+									<div class="crat-icon">
+										<span class="icon_cart_alt"></span>
+										<span class="zero">0 </span>
+										<p class="mt-cart-title">My Cart</p>
+									</div>
+									<div class="cart-header">
+										<p class="cart-tolatl">
+											<span><span class="price">$0.00</span></span>
+										</p>
+									</div>	
+								</div>
+								<div class="mini-contentCart">
+									<div class="block-content">
+										<p class="block-subtitle">Recently added item(s)</p>
+										<ol class="mini-products-list clearfix" id="cart-sidebar">
+											<li class="item clearfix">
+												<div class="cart-content-top">
+													<a class="product-image" title="Wave Ripped Straight" href="#">
+														<img width="60" height="77" alt="Wave Ripped Straight" src="images/preview/shop/minicart/minicart.jpg">
+													</a>
+													<div class="product-details">
+													<p class="product-name"><a href="detail.html">Wave Ripped Straight</a></p>
+													<strong>1</strong> x<span class="price">$367.00</span>                                
+													</div>
+												</div>
+												<div class="cart-content-bottom">
+													<div class="clearfix">
+														<a class="btn-remove btn-remove2" title="Remove" href="#"><i class="icon-close icons"></i></a>
+													</div>
+												</div>
+											</li>
+											<li class="item clearfix">
+												<div class="cart-content-top">
+													<a class="product-image" title="Wave Ripped Straight" href="#">
+														<img width="60" height="77" alt="Wave Ripped Straight" src="images/preview/shop/minicart/minicart.jpg">
+													</a>
+													<div class="product-details">
+													<p class="product-name"><a href="detail.html">Wave Ripped Straight</a></p>
+													<strong>1</strong> x<span class="price">$367.00</span>                                
+													</div>
+												</div>
+												<div class="cart-content-bottom">
+													<div class="clearfix">
+														<a class="btn-remove btn-remove2" title="Remove" href="#"><i class="icon-close icons"></i></a>
+													</div>
+												</div>
+											</li>
+										</ol>
+										<p class="subtotal">
+											<span class="label">Subtotal:</span> <span class="price">$734.00</span>
+										</p>
+										<div class="actions">
+											<a class="view-cart" href="cart.html">View cart  </a>
+											<a  class="checkout btn-call-checkout" href="checkout.html">Checkout </a>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header header-sticky">
+			<div class="container">
+				<div class="header-wrapper clearfix">
+					<!-- Navigation -->
+					<nav class="navigation closed clearfix">
+						<a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+						<ul class="sf-menu nav">
+							<li class="active">
+								<a href="#home">Home</a>
+								<ul>
+									<li><a href="index.html">Home 01 / Default</a></li>
+									<li><a href="index2.html">Home 02 / Fashion</a></li>
+									<li><a href="index3.html">Home 03 / Fashion</a></li>
+									<li><a href="index4.html">Home 04 / Fashion</a></li>
+									<li><a href="index5.html">Home 05 / Fashion</a></li>
+									<li><a href="index6.html">Home 06 / Fashion</a></li>
+								</ul>
+							</li>
+							<li class="megamenu">
+								<a href="page-left-sidebar.html">Category</a>
+								<ul>
+									<li class="row">
+										<!---->
+										<div class="col-md-2 col-item">
+											<h4 class="block-title">Womens</h4>
+											<ul>
+												<li><a href="#">Dresses</a></li>
+												<li><a href="#">Rompers & Jumpsuits</a></li>
+												<li><a href="#">Bodysuits</a></li>
+												<li><a href="#">Shirts & Blouses</a></li>
+												<li><a href="#">Coats & Jackets</a></li>
+												<li><a href="#">Blazers</a></li>
+											</ul>
+										</div>
+										<!---->
+										<!---->
+										<div class="col-md-2 col-item">
+											<h4 class="block-title">Mens</h4>
+											<ul>
+												<li><a href="#">T-Shirts & Vests</a></li>
+												<li><a href="#">Sweaters & Cardigans</a></li>
+												<li><a href="#">Hoodies & Sweats</a></li>
+												<li><a href="#">Coats & Jackets</a></li>
+												<li><a href="#">Shirts</a></li>
+												<li><a href="#">Shorts</a></li>
+											</ul>
+										</div>
+										<!---->
+										<div class="col-md-2 col-item">
+											<h4 class="block-title">Womens</h4>
+											<ul>
+												<li><a href="#">Dresses</a></li>
+												<li><a href="#">Rompers & Jumpsuits</a></li>
+												<li><a href="#">Bodysuits</a></li>
+												<li><a href="#">Shirts & Blouses</a></li>
+												<li><a href="#">Coats & Jackets</a></li>
+												<li><a href="#">Blazers</a></li>
+											</ul>
+										</div>
+										<!---->
+										<!---->
+										<div class="col-md-2 col-item">
+											<h4 class="block-title">Mens</h4>
+											<ul>
+												<li><a href="#">T-Shirts & Vests</a></li>
+												<li><a href="#">Sweaters & Cardigans</a></li>
+												<li><a href="#">Hoodies & Sweats</a></li>
+												<li><a href="#">Coats & Jackets</a></li>
+												<li><a href="#">Shirts</a></li>
+												<li><a href="#">Shorts</a></li>
+											</ul>
+										</div>
+										<!---->
+										<div class="col-md-2 col-item col-menu-right">
+											<a href="images/preview/menu/img-mega.jpg"><img alt="images" src="images/preview/menu/img-mega.jpg" /></a>
+										</div>
+										<!---->
+
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="page-left-sidebar.html">Shop</a>
+								
+								<ul>
+									<li><a href="detail.html">Single Product</a></li>
+									<li><a href="shop-without-sidebar.html">Full Width</a></li>
+									<li>
+										<a href="page-left-sidebar.html">2 Colunms</a>
+										<ul>
+											<li><a href="page-left-sidebar.html">Left Sidebar</a></li>
+											<li><a href="page-right-sidebar.html">Right Sidebar</a></li>
+											<li><a href="shop-list-sidebar.html">Shop List Sidebar</a></li>
+										</ul>
+									</li>
+									<li><a href="cart.html">Cart</a></li>
+									<li><a href="checkout.html">Checkout</a></li>
+									<li><a href="wishlist.html">Wishlist</a></li>
+									<li><a href="track-oder.html">Track Oder</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="blog.html">Blog</a>
+								<ul>
+									<li><a href="blog-single.html">Single Blog</a></li>
+									<li><a href="blog-fullwidth.html">Full Width</a></li>
+									<li>
+										<a href="blog.html">2 Colunms</a>
+										<ul>
+											<li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
+											<li><a href="blog.html">Right Sidebar</a></li>
+										</ul>
+									</li>
+									
+								</ul>
+							</li>
+							<li>
+								<a href="#">Page</a>
+								<ul>
+									<li><a href="about.html">About</a></li>
+									<li><a href="faq.html">Faq</a></li>
+									<li><a href="404.html">404 Page</a></li>
+									<li><a href="login.html">Login Page</a></li>
+								</ul>
+							</li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+					<!-- /Navigation -->
+
+				</div>
+			</div>
+        </div>
+    </header>
+    <!-- /HEADER -->
+
+    <!-- Content area -->
+    <div class="content-area">
+
+        <!-- BREADCRUMBS -->
+        <section class="page-section breadcrumbs">
+        	<h2 class="hidden">breadcrumbs</h2>
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page-left-sidebar.html">Shop</a></li>
+                    <li class="active">Category</li>
+                </ul>
+            </div>
+        </section>
+        <!-- /BREADCRUMBS -->
+
+        <!-- PAGE SECTION WITH SIDEBAR -->
+        <section class="page-section with-sidebar no-padding-top">
+			<h2 class="hidden">page</h2>
+            <div class="container">
+                <div class="row">
+					<div class="category-img container">
+						<img class="img-responsive" title="Shop" alt="Shop" src="images/preview/shop/category/imges-cate.jpg">
+					</div>
+					
+					<!-- sidebar -->
+                    <aside class="sidebar col-sm-4 col-md-3">
+						
+						<div class="widget-menu">
+							<div class="block block-anav">
+								<div class="block-title">
+									<strong><span>Categories</span></strong>
+								</div>
+								<div id="menu-left">
+									<ul class="nav-accordion">
+										<li class="has-sub">
+											<a href="#"><span>Category</span></a>
+											<ul class="toggle-content">
+												<li>
+													<a href="#"><span>Men</span></a>
+													<ul class="toggle-content">
+														<li><a href="#"><span>Men</span></a></li>
+														<li><a href="#"><span>Womens</span></a></li>
+														<li><a href="#"><span>Mauris et neque</span></a></li>
+														<li><a href="#"><span>Donec porttitor</span></a></li>
+														<li class="last"><a href="#"><span>Morbi quis</span></a></li>
+													</ul>
+												</li>
+												<li><a href="#"><span>Womens</span></a></li>
+												<li><a href="#"><span>Mauris et neque</span></a></li>
+												<li><a href="#"><span>Donec porttitor</span></a></li>
+												<li class="last"><a href="#"><span>Morbi quis</span></a></li>
+											</ul>
+										</li>
+									   <li class="has-sub">
+											<a href="#"><span>Accessories</span></a>
+											<ul class="toggle-content">
+												<li><a href="#"><span>Company</span></a></li>
+												<li class="last"><a href="#"><span>Contact</span></a></li>
+											</ul>
+									   </li>
+									   <li><a href="#"><span>Bags & Purses</span></a></li>
+									   <li><a href="#"><span>Jeans</span></a></li>
+									   <li class="last"><a href="#"><span>Menn</span></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="block block-layered-nav">
+							<div class="block-title">
+								<strong><span>Shop By</span></strong>
+							</div>
+							<div class="block-content toggle-content">
+								<dl id="narrow-by-list">
+									<div class="narrow-box">
+										<dt class="odd">Manufacturer</dt>
+										<span class="toggle-tab mobile" style="display: none;"></span>
+										<dd class="odd toggle-content">
+											<ol>
+												<li>
+													<a href="#">buberry</a>
+													<span class="count">(3)</span>
+												</li>
+												<li>
+													<a href="#">chanel</a>
+													<span class="count">(1)</span>
+												</li>
+												<li>
+													<a href="#">gucci</a>
+													<span class="count">(6)</span>
+												</li>
+												<li>
+													<a href="#">versace</a>
+													<span class="count">(3)</span>
+												</li>
+											</ol>
+										</dd>
+									</div>
+									<div class="narrow-box">
+										<dt class="even">Price</dt>
+										<span class="toggle-tab mobile" style="display: none;"></span>
+										<dd class="even toggle-content">
+											<div id="slider-range"></div>
+											<div class ="input-box slider_range">
+												<input type="text" class ="input-text" id="amount" readonly /> - 
+												<input type="text" class ="input-text" id="amount_right" readonly />
+												<input name ="price" class ="btn btn-theme btn-theme-red " type ="submit" value ="Fillter"/>
+											</div>
+										</dd>
+									</div>
+									<div class="narrow-box">
+										<dt class="even">Color</dt>
+										<span class="toggle-tab mobile" style="display: none;"></span>
+										<dd class="even toggle-content">
+											<ol>
+												<li>
+													<a href="#">Black</a>
+													<span class="count">(1)</span>
+												</li>
+												<li>
+													<a href="#">Blue</a>
+													<span class="count">(3)</span>
+												</li>
+												<li>
+													<a href="#">Orange </a>
+													<span class="count">(4)</span>
+												</li>
+												<li>
+													<a href="#">Red</a>
+													<span class="count">(2)</span>
+												</li>
+												<li>
+													<a href="#">white</a>
+													<span class="count">(3)</span>
+												</li>
+											</ol>
+										</dd>
+									</div>
+									<div class="narrow">
+										<dt class="last odd">Size</dt>
+										<span class="toggle-tab mobile" style="display: none;"></span>
+										<dd class="last odd toggle-content">
+											<ol>
+												<li>
+													<a href="#">XS</a>
+													<span class="count">(4)</span>
+												</li>
+												<li>
+													<a href="#">XXL </a><span class="count">(1)</span>
+												</li>
+											</ol>
+										</dd>
+									</div>
+								</dl>
+							</div>
+						</div>
+                        <div class="widget widget-tag-cloud block">
+							<div class="block-title">
+								<strong><span>Tags</span></strong>
+							</div>
+                            <ul>
+                                <li><a href="#">Sunglasses</a></li>
+                                <li><a href="#">Handbag</a></li>
+                                <li><a href="#">Leather</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Sexy Dress</a></li>
+                                <li><a href="#">Vintage</a></li>
+                                <li><a href="#">Shoping</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <!-- /sidebar -->
+					
+                    <!-- content -->
+                    <section class="content col-sm-8 col-md-9">
+						<div class="row shop-sorting">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="form-group selectpicker-wrapper">
+                                        <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select">
+                                            <option>Default sorting</option>
+                                            <option>Price</option>
+                                            <option>Sales</option>
+                                            <option>Rating</option>
+                                            <option>Date</option>
+                                            <option>Brand</option>
+                                        </select>
+                                    </div>
+                                </form>
+								<div class ="list-grid">
+									<ul>
+										<li class ="grid"><span>Grid</span></li>
+										<li class ="list current"><a href ="shop-list-sidebar.html">List</a></li>
+									</ul>
+								</div>
+                            </div>
+                        </div>
+                        <div class=" thumbnails products-list">
+							<!-- Popup product quick view -->
+							<div class="modal fade popup-product-view" id="popup-product-view" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="container">
+									<div class="modal-content">
+
+										<div class="extended_product_page" id="extended_product_page">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h2 class="modal-title">Retro Spring Woman Dress</h2>
+											</div>
+											<div class="modal-body">
+												<div class="row product-single blocks">
+													<div class="col-lg-5 col-md-4 col-sm-5 col-xsp-6">
+														<div class="block">
+															<div class="owl-carousel product-img-carousel">
+																<div class="item"><a href="images/preview/shop/zoom/zoom1.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom1.jpg" alt="images"/></a></div>
+																<div class="item"><a href="images/preview/shop/zoom/zoom2.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom2.jpg" alt="images"/></a></div>
+																<div class="item"><a href="images/preview/shop/zoom/zoom3.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom3.jpg" alt="images"/></a></div>
+																 <div class="item"><a href="images/preview/shop/zoom/zoom4.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom4.jpg" alt="images"/></a></div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-8 col-sm-7 col-xsp-6">
+														<div class="block">
+															<div class="product-rating clearfix">
+																<span class="rating">
+																	<span class="star"></span>
+																	<span class="star"></span>
+																	<span class="star"></span>
+																	<span class="star"></span>
+																	<span class="star"></span>
+																</span>
+																<a href="#">2 reviews</a> / <a href="#">Add a Review</a>
+															</div>
+															<div class="product-price">$154.00</div>
+															<div class="product-qty">
+																<form class="form-inline">
+																	<div class="form-group"><label>Qty:</label><input class="form-control qty" value="1" type="text"></div>
+																	<button type="submit" class="btn btn-theme btn-theme-md">Add to cart</button>
+																</form>
+															</div>
+															<p>Aliquam hendrit rutrum iaculis nullam ondimentum maluada velit beum donec sit amet tristique erosam amet risus mollis malesuada nulla. Vestibulum ante ipsum primis in faucibus orcluctus et ultrices. Vestibulum ante ipsum primis in faucibus.</p>
+															<ul class="list">
+																<li><i class="fa fa-check-square-o"></i>Porttitor euismod pharetra</li>
+																<li><i class="fa fa-check-square-o"></i>Amet massa posuere pretium vestibulum.</li>
+																<li><i class="fa fa-check-square-o"></i>Vestibulum ante ipsum</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+
+									</div>
+									</div>
+								</div>
+							</div>
+							<!-- Popup product quick view -->
+							<ul>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product1.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product1-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product2.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product2-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product3.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product3-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product4.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product4-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product5.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product5-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product1.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product1-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product2.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product2-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product3.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product3-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="detail.html">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="item odd">
+									<div class="row">
+										<div class="col-mobile-12 col-xs-5 col-md-4 col-sm-4 col-lg-4">
+											<div class="products-list-container">
+												<div class="images-container">
+													<div class="product-hover"> 
+														<a class="product-image" title="Primo Court Mid Suede" href="detail.html"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product4.jpg" class="img-responsive"> <span class="product-img-back"> 
+														<img width="280" height="357" alt="Primo Court Mid Suede" src="images/preview/shop/product4-hover.jpg" class="img-responsive"> </span> 
+														</a>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<div class="product-shop col-mobile-12 col-xs-7 col-md-8 col-sm-8 col-lg-8">
+											<div class="f-fix">
+												<div class="product-primary products-textlink clearfix">
+													<h2 class="product-name">
+														<a title="Primo Court Mid Suede" href="">Primo Court Mid Suede</a>
+													</h2>
+													<div class="ratings">
+														<div class="rating-box">
+															<div style="width:80%" class="rating">
+															</div>
+														</div>
+														<p class="rating-links"> 
+															<a href="">1 Review(s)</a> <span class="separator">|</span> 
+															<a href="">Add Your Review</a>
+														</p>
+													</div>
+													<div class="price-box"> 
+														<span class="regular-price"> 
+															<span class="price">$325.00</span> 
+														</span>
+													</div>
+												</div>
+												<div class="desc std"> Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, vestibulum tincidunt mauris!
+												</div>
+												<div class="product-secondary actions-no actions-list clearfix">
+													<p class="action">
+														<button onclick="window.location.href='cart.html'" class="button btn-cart pull-left" title="Add to Cart" type="button"><span><span>Add to Cart</span></span>
+														</button>
+													</p>
+													<ul class="add-to-links">
+														<li class="pull-left">
+															<a class="link-wishlist" title="Add to Wishlist" href="wishlist.html"><i class="icon-heart icons"></i>Add to Wishlist</a>
+														</li>
+														<li class="pull-left">
+															<a class="link-compare" title="Add to Compare" href=""><i class="icon-bar-chart icons"></i>Add to Compare</a>
+														</li>
+														<li class="pull-left link-view"> 
+															<a class="link-quickview" data-target="#popup-product-view" data-toggle="modal" href="#" title="Quick View"><i class="icon-magnifier icons"></i>Quick View</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+                        </div>
+                        <!-- Pagination -->
+                        <div class="pagination-wrapper">
+                            <ul class="pagination">
+                                <li class="disabled"><a href="#">«</a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Pagination -->
+                    </section>
+                    <!-- /content -->
+                </div>
+            </div>
+        </section>
+        <!-- /PAGE SECTION WITH SIDEBAR -->
+		
+		 <section class="page-section support-page" id="support">
+		 	<h2 class="hidden">page</h2>
+			<div class="container">
+				<div class="support-policy">
+					<div class="support-footer-inner row">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="row-normal clearfix">
+								<div class="col-icon">
+									<div class="support-icon square-round"><i class="icon-plane icons"><span class="hidden">hidden</span></i></div>
+								</div>
+								<div class="col-text">
+									<div class="support-info">
+										<div class="info-title">FREE SHIPPING WORLDWIDE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="row-normal clearfix">
+								<div class="col-icon">
+									<div class="support-icon square-round"><i class="icon-earphones-alt icons"><span class="hidden">hidden</span></i></div>
+								</div>
+								<div class="col-text">
+									<div class="support-info">
+										<div class="info-title">24/7 CUSTOMER SERVICE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="row-normal clearfix">
+								<div class="col-icon">
+									<div class="support-icon square-round"><i class="icon-users icons"><span class="hidden">hidden</span></i></div>
+								</div>
+								<div class="col-text">
+									<div class="support-info">
+										<div class="info-title">Member Discount</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </section>
+		
+    </div>
+    <!-- /Content area -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container footer-color color">
+			<div class="block-footer-top">
+				<div class="container">
+					<div class="main">
+						<div class="footer">
+							<div class="row">
+								<div class="col-md-3 col-sm-6 col-xs-12">
+								<h2 class="logo-text">milano fashion.</h2>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-12">
+									<ul class="list-inline">
+										<li><a href="#" class="social-link twitter"><i class="fa fa-twitter"><span class="hidden">twitter</span></i></a></li>
+										<li><a href="#" class="social-link google-plus"><i class="fa fa-google-plus"><span class="hidden">google-plus</span></i></a></li>
+										<li><a href="#" class="social-link facebook"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>
+										<li><a href="#" class="social-link tumblr"><i class="fa fa-tumblr"><span class="hidden">tumblr</span></i></a></li>
+										<li><a href="#" class="social-link pinterest"><i class="fa fa-pinterest"><span class="hidden">pinterest</span></i></a></li>
+									</ul>
+								</div>
+								<div class="col-md-6 col-sm-12 col-xs-12 clearboth">
+									<div class="collapsible mobile-collapsible">
+										<div class="block-newletter">
+											<div class="block block-subscribe">
+												<div class="block-title">
+													<strong><span>Newsletter</span></strong>
+												</div>
+												<form id="newsletter-validate-detail" method="post">
+													<div class="block-content">
+														<div class="form-subscribe-header">
+															<p>newsletter!</p>
+														</div>
+														<div class="input-box">
+														   <input type="text" placeholder="Your email adress ..." class="input-text required-entry validate-email" title="Sign up for our newsletter" id="newsletter" name="email">
+														   
+														</div>
+														<div class="actions">
+															<button class="button" title="Subscribe" type="submit">
+																 <span><span>Subscribe</span></span></button>
+														   </div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>         
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block-footer-bottom">
+				<div class="container">
+					<div class="main">
+						<div class="footer">
+						   <div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-mobile-12 f-item">
+									<div class="collapsible mobile-collapsible content">
+										<h3 class="block-title heading">about</h3>
+										<div class="block1 block-content-statick">
+											<ul>
+												<li class="feature-icon first">
+													<p class="no-margin"><span>Add</span>,262 Milacina Mrest Street Behansed, Paris France</p>
+												</li>
+												<li class="feature-icon">
+													<p><span>Tel</span>.+84 912. 345. 678</p>
+												</li>
+												<li class="feature-icon">
+													<p><span>Email</span>.suport@alothemes.com</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-mobile-12 f-item">
+									<div class="collapsible mobile-collapsible content">
+										<h3 class="block-title heading">Userful Links</h3>
+										<div class="block-content block-content-statick">
+											<ul class="bullet">
+												<li><a href="#">Help</a></li>
+												<li><a href="#">Gift Cards</a></li>
+												<li><a href="#">Order Status</a></li>
+												<li><a href="#">Free Shipping</a></li>
+												<li><a href="#">Returns &amp; Exchanges</a></li>
+												<li><a href="#">International</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-mobile-12 f-item">
+									<div class="collapsible mobile-collapsible content">
+										<h3 class="block-title heading">Customer Care</h3>
+										<div class="block-content block-content-statick">
+											<ul class="bullet">
+												<li><a href="#">About Us</a></li>
+												<li><a href="#">Jobs</a></li>
+												<li><a href="#">Affiliates</a></li>
+												<li><a href="#">Meet The Maker</a></li>
+												<li><a href="#">Contact</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-mobile-12 f-item">
+									<div class="collapsible mobile-collapsible content">
+										<h3 class="block-title heading">Customer Care</h3>
+										<div class="block-content block-content-statick">
+											<ul class="bullet">
+												<li><a href="#">Security</a></li>
+												<li><a href="#">Privacy</a></li>
+												<li><a href="#">Text Messaging</a></li>
+												<li><a href="#">Legal</a></li>
+												<li><a href="#">Supply chain</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>				
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block-footer-copyright">
+				<div class="container">
+					<div class="footer">
+						<div class="main">
+							<div class="row">
+								 <div class="links">
+									<div class="block-title"><strong><span>Company</span></strong></div>
+									<ul>
+										<li><a href="#">About Us</a></li>
+										<li><a href="#">Contact Us</a></li>
+										<li><a href="#">Customer Service</a></li>
+										<li><a href="#">Privacy Policy</a></li>
+										<li><a href="#">Accessibility</a></li>
+										<li><a href="#">Store Directory</a></li>
+									</ul>
+								</div>           
+								<address>Copyright &copy; 2015  by <a title="Alothemes" href="http://alothemes.com" class="active">Alothemes.com.</a> All rights reserved.</address>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+    <!-- /FOOTER -->
+
+    <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+
+</div>
+<!-- /Wrap all content -->
+
+<!-- JS Global -->
+
+<!--[if lt IE 9]><script src="js/plugins/jquery/jquery-1.11.1.min.js"></script><![endif]-->
+<!--[if gte IE 9]><!--><script src="js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<!-- <script src="js/plugins/modernizr.custom.js"></script> -->
+<script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="js/plugins/superfish/js/superfish.min.js"></script>
+<script src="js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+<script src="js/plugins/jquery.easing.min.js"></script>
+<script src="js/plugins/jquery.sticky.min.js"></script>
+<script src="js/plugins/accordion/js/magicaccordion.js"></script>
+<!-- JS Page Level -->
+<script src="js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="js/plugins/waypoints/waypoints.min.js"></script>
+<script src="js/plugins/jquery/jquery-ui-1.11.1.min.js"></script>
+
+<script src="js/theme-ajax-mail.js"></script>
+<script src="js/theme.js"></script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/plugins/jquery.cookie.js"></script>
+<script src="js/theme-config.js"></script>
+<!--<![endif]-->
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+		/*
+        $(".nav-accordion").magicaccordion({
+            accordion:true,
+            speed: 400,
+            closedSign: 'collapse',
+            openedSign: 'expand',
+            easing: 'easeInOutQuad'
+        });
+		*/
+		$(function() {
+			jQuery( "#slider-range" ).slider({
+			    range: true,
+			    min: 0,
+			    max: 500,
+			    values: [ 75, 300 ],
+			    slide: function( event, ui ) {
+			        jQuery( "#amount" ).val( "$" + ui.values[ 0 ] );
+			        jQuery( "#amount_right" ).val( "$" + ui.values[ 1 ] );
+			    }
+			});
+			jQuery( "#amount" ).val( "$" + jQuery( "#slider-range" ).slider( "values", 0 ) );
+			jQuery( "#amount_right" ).val( "$" + jQuery( "#slider-range" ).slider( "values", 1));
+		});  
+
+    });
+</script>
+
+
+</body>
+</html>
